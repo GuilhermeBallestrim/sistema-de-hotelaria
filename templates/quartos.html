@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Quartos</title>
+</head>
+
+<body>
+
+    <h1>Lista de Quartos</h1>
+
+    <br>
+    <a href="/">
+        Voltar
+    </a>
+
+    <br>
+
+    <hr>
+    <a href="add_quarto">
+        Adicionar Quarto
+    </a>
+    <hr>
+    <a href="delete_quarto">
+        Excluir Quarto
+    </a>
+    <hr>
+
+    {% for quarto in quartos %}
+
+    <p>
+        ID: {{ quarto.id }}
+    </p>
+
+    <p>
+        Quarto {{ quarto.numero }}
+        -
+        {{ quarto.tipo }}
+        -
+        {{ quarto.valor_diaria }}
+        -
+        {{ quarto.status }}
+    </p>
+
+    {% endfor %}
+
+</body>
+
+</html>
