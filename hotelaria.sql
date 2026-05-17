@@ -28,14 +28,17 @@ CREATE table reservas (
     FOREIGN KEY (quarto_id) REFERENCES quartos(id)
 );
 
-INSERT INTO hospedes(nome, email, telefone, cpf) VALUES ("Guilherme Ballestrim", "gui.bs@outlook.com", "11921886001", "46776989885");
+INSERT INTO hospedes(nome, email, telefone, cpf)
+VALUES
+('João Silva', 'joao@email.com', '11999999999', '111.111.111-11'),
+('Maria Souza', 'maria@email.com', '11888888888', '222.222.222-22');
+
+INSERT INTO quartos(numero, tipo, valor_diaria, status)
+VALUES
+('101', 'Solteiro', 120.00, 'Disponível'),
+('102', 'Casal', 180.00, 'Ocupado'),
+('201', 'Luxo', 350.00, 'Manutenção');
 
 INSERT INTO reservas(hospede_id, quarto_id, data_entrada, data_saida)
-VALUES(
-    16,
-    4,
-    16-04-2026,
-    20-04-2026
-);
-
-SELECT * FROM reservas;
+VALUES
+(1, 2, '2026-05-10', '2026-05-15');
