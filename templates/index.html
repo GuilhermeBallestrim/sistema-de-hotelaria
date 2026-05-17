@@ -1,20 +1,43 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
 
-<head>
-    <title>Hotelaria</title>
-</head>
+{% block title %}
+Dashboard
+{% endblock %}
 
-<body>
+{% block content %}
 
-    <h1>Sistema de Hotelaria</h1>
+<section class="dashboard">
 
-    <a href="/hospedes">Hospedes</a>
-    <br>
-    <a href="/quartos">Quartos</a>
-    <br>
-    <a href="/reservas">Reservas</a>
+    <h2>Dashboard</h2>
 
-</body>
+    <div class="cards">
 
-</html>
+        <div class="card">
+
+            <h3>Hóspedes</h3>
+
+            <p>{{ qtd_hospedes }}</p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Quartos</h3>
+
+            <p>{{ qtd_quartos }}</p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Reservas</h3>
+
+            <p>{{ qtd_reservas }}</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

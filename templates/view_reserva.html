@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+
+{% block title %}
+Visualizar Reserva
+{% endblock %}
+
+{% block page_title %}
+Detalhes da Reserva
+{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+
+    <div>
+        <h1 class="page-title">
+            Reserva #{{ reserva.id }}
+        </h1>
+
+        <p class="page-description">
+            Informações completas da hospedagem
+        </p>
+    </div>
+
+    <div class="actions">
+
+        <a href="/reservas" class="btn btn-view">
+            Voltar
+        </a>
+
+        <a href="/edit_reserva/{{ reserva.id }}" class="btn btn-edit">
+            Editar
+        </a>
+
+    </div>
+
+</div>
+
+<div class="details-grid">
+
+    <div class="details-card">
+
+        <div class="details-header">
+            <h2>Hóspede</h2>
+            <p>Informações pessoais</p>
+        </div>
+
+        <div class="detail-item">
+            <span class="label">Nome</span>
+            <span class="value">{{ reserva.hospede }}</span>
+        </div>
+
+        <div class="detail-item">
+            <span class="label">CPF</span>
+            <span class="value">{{ reserva.cpf }}</span>
+        </div>
+
+        <div class="detail-item">
+            <span class="label">Telefone</span>
+            <span class="value">{{ reserva.telefone }}</span>
+        </div>
+
+        <div class="detail-item">
+            <span class="label">Email</span>
+            <span class="value">{{ reserva.email }}</span>
+        </div>
+
+    </div>
+
+    <div class="details-card">
+
+        <div class="details-header">
+            <h2>Quarto</h2>
+            <p>Detalhes da acomodação</p>
+        </div>
+
+        <div class="detail-item">
+            <span class="label">Número</span>
+            <span class="value">
+                Quarto {{ reserva.quarto }}
+            </span>
+        </div>
+
+        <div class="detail-item">
+            <span class="label">Tipo</span>
+            <span class="value">{{ reserva.tipo }}</span>
+        </div>
+
+        <div class="detail-item">
+            <span class="label">Diária</span>
+            <span class="value">
+                R$ {{ reserva.valor_diaria }}
+            </span>
+        </div>
+
+        <div class="detail-item">
+            <span class="label">Status</span>
+
+            <span class="status
+                {% if reserva.status == 'Disponível' %}
+                    disponivel
+                {% elif reserva.status == 'Ocupado' %}
+                    ocupado
+                {% else %}
+                    manutencao
+                {% endif %}
+            ">
+                {{ reserva.status }}
+            </span>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="reservation-card">
+
+    <div class="details-header">
+        <h2>Hospedagem</h2>
+        <p>Datas e resumo financeiro</p>
+    </div>
+
+    <div class="reservation-timeline">
+
+        <div class="timeline-item">
+            <span class="timeline-label">
+                Entrada
+            </span>
+
+            <span class="timeline-value">
+                {{ reserva.data_entrada }}
+            </span>
+        </div>
+
+        <div class="timeline-item">
+            <span class="timeline-label">
+                Saída
+            </span>
+
+            <span class="timeline-value">
+                {{ reserva.data_saida }}
+            </span>
+        </div>
+
+    </div>
+
+    <div class="total-box">
+
+        <div>
+            <h3>Total Estimado</h3>
+
+            <p>
+                {{ dias }} diária(s)
+            </p>
+        </div>
+
+        <span>
+            R$ {{ valor_total }}
+        </span>
+
+    </div>
+
+</div>
+
+{% endblock %}

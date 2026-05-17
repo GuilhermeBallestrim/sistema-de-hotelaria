@@ -1,35 +1,75 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
 
-<head>
-    <title>Reservas</title>
-</head>
+{% block title %}
+Reservas
+{% endblock %}
 
-<body>
+{% block page_title %}
+Lista de Reservas
+{% endblock %}
 
-    <h1>Lista de Reservas</h1>
+{% block content %}
 
-    <br>
-    <a href="/">
-        Voltar
-    </a>
+<a href="/add_reserva" class="btn btn-add">
+    Nova Reserva
+</a>
 
-    <br>
+<br><br>
 
-    <hr>
+<table>
 
-    <hr>
+    <tr>
+
+        <th>ID</th>
+        <th>Hóspede</th>
+        <th>Quarto</th>
+        <th>Entrada</th>
+        <th>Saída</th>
+        <th>Ações</th>
+
+    </tr>
 
     {% for reserva in reservas %}
 
-    <p>
-        {{ reservas.id }}
-        -
-        {{ reservas.nome }}
-    </p>
+    <tr>
+
+        <td>{{ reserva.id }}</td>
+
+        <td>{{ reserva.hospede }}</td>
+
+        <td>{{ reserva.quarto }}</td>
+
+        <td>{{ reserva.data_entrada }}</td>
+
+        <td>{{ reserva.data_saida }}</td>
+
+        <td>
+
+            <a href="/view_reserva/{{ reserva.id }}" class="btn btn-view">
+
+                Visualizar
+
+            </a>
+
+            <a href="/edit_reserva/{{ reserva.id }}" class="btn btn-edit">
+
+                Editar
+
+            </a>
+
+            <a href="/delete_reserva/{{ reserva.id }}" class="btn btn-delete"
+                onclick="return confirm('Deseja excluir esta reserva?')">
+
+                Excluir
+
+            </a>
+
+        </td>
+
+    </tr>
 
     {% endfor %}
 
-</body>
+</table>
 
-</html>
+{% endblock %}

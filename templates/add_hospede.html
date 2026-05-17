@@ -1,38 +1,47 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
 
-<head>
-    <title>Novo Hóspede</title>
-</head>
+{% block title %}
+Adicionar Hóspede
+{% endblock %}
 
-<body>
+{% block page_title %}
+Novo Hóspede
+{% endblock %}
 
-    <h1>Cadastrar Hóspede</h1>
+{% block content %}
 
-    <form method="POST">
+{% if erro %}
 
-        <input type="text" name="nome" placeholder="Nome">
+<div class="mensagem-erro">
+    {{ erro }}
+</div>
 
-        <br><br>
+{% endif %}
 
-        <input type="email" name="email" placeholder="Email">
+<form method="POST">
 
-        <br><br>
+    <label>Nome</label>
 
-        <input type="text" name="telefone" placeholder="Telefone">
+    <input type="text" name="nome" placeholder="Digite o nome do hóspede" required>
 
-        <br><br>
+    <label>Email</label>
 
-        <input type="text" name="cpf" placeholder="CPF">
+    <input type="email" name="email" placeholder="Digite o email" required>
 
-        <br><br>
+    <label>Telefone</label>
 
-        <button type="submit">
-            Cadastrar
-        </button>
+    <input type="text" name="telefone" placeholder="Digite o telefone" required>
 
-    </form>
+    <label>CPF</label>
 
-</body>
+    <input type="text" name="cpf" placeholder="Digite o CPF" required>
 
-</html>
+    <button type="submit" class="btn btn-add">
+
+        Cadastrar Hóspede
+
+    </button>
+
+</form>
+
+{% endblock %}

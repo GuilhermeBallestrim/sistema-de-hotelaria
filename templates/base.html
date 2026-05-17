@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% block title %}
+        Sistema de Hotelaria
+        {% endblock %}
+    </title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                <i class="fa-solid fa-hotel"></i>
+            </div>
+
+            <div>
+                <h1>Hotelaria</h1>
+                <p>Sistema de Gestão</p>
+            </div>
+
+        </div>
+
+        <nav class="menu">
+
+            <a href="/">
+                <i class="fa-solid fa-chart-line"></i>
+                Dashboard
+            </a>
+
+            <a href="/hospedes">
+                <i class="fa-solid fa-users"></i>
+                Hóspedes
+            </a>
+
+            <a href="/quartos">
+                <i class="fa-solid fa-bed"></i>
+                Quartos
+            </a>
+
+            <a href="/reservas">
+                <i class="fa-solid fa-calendar-check"></i>
+                Reservas
+            </a>
+
+        </nav>
+
+    </aside>
+
+    <main class="content">
+
+        <header class="topbar">
+
+            <div>
+                <h2>
+                    {% block page_title %}
+                    Dashboard
+                    {% endblock %}
+                </h2>
+
+                <p class="subtitle">
+                    Sistema de gerenciamento hoteleiro
+                </p>
+            </div>
+
+        </header>
+
+        <section class="page-content">
+
+            {% block content %}
+            {% endblock %}
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}
+Editar Quarto
+{% endblock %}
+
+{% block page_title %}
+Editar Quarto
+{% endblock %}
+
+{% block content %}
+
+{% if erro %}
+
+<div class="mensagem-erro">
+    {{ erro }}
+</div>
+
+{% endif %}
+
+
+<form method="POST">
+
+    <label>Número do Quarto</label>
+
+    <input type="number" name="numero" value="{{ quarto.numero }}" required>
+
+    <label>Tipo</label>
+
+    <input type="text" name="tipo" value="{{ quarto.tipo }}" required>
+
+    <label>Valor da Diária</label>
+
+    <input type="number" step="0.01" name="valor_diaria" value="{{ quarto.valor_diaria }}" required>
+
+    <label>Status</label>
+
+    <select name="status" required>
+
+        <option value="Disponível" {% if quarto.status=="Disponível" %} selected {% endif %}>
+            Disponível
+        </option>
+
+        <option value="Ocupado" {% if quarto.status=="Ocupado" %} selected {% endif %}>
+            Ocupado
+        </option>
+
+        <option value="Manutenção" {% if quarto.status=="Manutenção" %} selected {% endif %}>
+            Manutenção
+        </option>
+
+    </select>
+
+    <button type="submit" class="btn btn-edit">
+
+        Salvar Alterações
+
+    </button>
+
+</form>
+
+{% endblock %}

@@ -30,12 +30,12 @@ CREATE table reservas (
 
 INSERT INTO hospedes(nome, email, telefone, cpf) VALUES ("Guilherme Ballestrim", "gui.bs@outlook.com", "11921886001", "46776989885");
 
-INSERT INTO quartos(numero, tipo, valor_diaria, status)
+INSERT INTO reservas(hospede_id, quarto_id, data_entrada, data_saida)
 VALUES(
-    104,
-    'Premium',
-    95.0,
-    'Em Manutenção'
+    16,
+    4,
+    16-04-2026,
+    20-04-2026
 );
 
-SELECT * FROM quartos;
+SELECT * FROM reservas;

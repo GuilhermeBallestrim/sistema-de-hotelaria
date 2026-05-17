@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}
+Editar Hóspede
+{% endblock %}
+
+{% block page_title %}
+Editar Hóspede
+{% endblock %}
+
+{% block content %}
+
+{% if erro %}
+
+<div class="mensagem-erro">
+    {{ erro }}
+</div>
+
+{% endif %}
+
+
+<form method="POST">
+
+    <label>Nome</label>
+
+    <input type="text" name="nome" value="{{ hospede.nome }}" required>
+
+    <label>Email</label>
+
+    <input type="email" name="email" value="{{ hospede.email }}" required>
+
+    <label>Telefone</label>
+
+    <input type="text" name="telefone" value="{{ hospede.telefone }}" required>
+
+    <label>CPF</label>
+
+    <input type="text" name="cpf" value="{{ hospede.cpf }}" required>
+
+    <button type="submit" class="btn btn-edit">
+
+        Salvar Alterações
+
+    </button>
+
+</form>
+
+{% endblock %}
