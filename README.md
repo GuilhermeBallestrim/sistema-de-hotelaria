@@ -125,7 +125,7 @@ Ou outro gerenciador MySQL de sua preferência.
 
 ---
 
-## 2. Executar o arquivo `database.sql`
+## 2. Executar o arquivo `hotelaria.sql`
 
 O arquivo irá:
 
