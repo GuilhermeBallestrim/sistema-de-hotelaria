@@ -11,13 +11,10 @@ Nova Reserva
 {% block content %}
 
 {% if erro %}
-
 <div class="mensagem-erro">
     {{ erro }}
 </div>
-
 {% endif %}
-
 
 <form method="POST">
 
@@ -26,13 +23,9 @@ Nova Reserva
     <select name="hospede_id" required>
 
         {% for hospede in hospedes %}
-
         <option value="{{ hospede.id }}">
-
             {{ hospede.nome }}
-
         </option>
-
         {% endfor %}
 
     </select>
@@ -42,29 +35,21 @@ Nova Reserva
     <select name="quarto_id" required>
 
         {% for quarto in quartos %}
-
         <option value="{{ quarto.id }}">
-
             Quarto {{ quarto.numero }} - {{ quarto.tipo }}
-
         </option>
-
         {% endfor %}
 
     </select>
 
     <label>Data de Entrada</label>
-
     <input type="date" name="data_entrada" required>
 
     <label>Data de Saída</label>
-
     <input type="date" name="data_saida" required>
 
     <button type="submit" class="btn btn-add">
-
         Criar Reserva
-
     </button>
 
 </form>

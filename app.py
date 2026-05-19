@@ -379,7 +379,6 @@ def add_reserva_route(
         status_code=303
     )
 
-
 # PAGINA EDIT
 @app.get("/edit_reserva/{id}")
 def edit_reserva_page(request: Request, id: int):
@@ -457,28 +456,40 @@ def delete_reserva_route(id: int):
 
 
 @app.get("/view_reserva/{id}")
-def view_reserva(request: Request, id:int):
-    
-    from datetime import datetime
-    
-    reserva = consulta_reserva_id(id)
-    
-    if not reserva:
-        return RedirectResponse("/reservas", status_code=303)
+def view_reserva(request: Request, id: int):
 
-    hospede = consulta_hospede_id(reserva["hospede_id"])
-    quarto = consulta_quarto_id(reserva["quarto_id"])
+    reserva = consulta_reserva_id(id)
+
+    if not reserva:
+        return RedirectResponse(
+            "/reservas",
+            status_code=303
+        )
+
+    hospede = consulta_hospede_id(
+        reserva["hospede_id"]
+    )
+
+    quarto = consulta_quarto_id(
+        reserva["quarto_id"]
+    )
 
     if not reserva.get("data_entrada") or not reserva.get("data_saida"):
-        dias=0
-        valor_total=0
+
+        dias = 0
+        valor_total = 0
+
     else:
+
         entrada = reserva["data_entrada"]
         saida = reserva["data_saida"]
+
         dias = (saida - entrada).days
-        valor_total = dias * quarto["valor_diaria"]
-    
-    
+
+        valor_total = (
+            dias * quarto["valor_diaria"]
+        )
+
     return templates.TemplateResponse(
         request,
         "view_reserva.html",

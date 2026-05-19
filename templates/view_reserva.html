@@ -123,23 +123,27 @@ Detalhes da Reserva
     <div class="reservation-timeline">
 
         <div class="timeline-item">
+
             <span class="timeline-label">
                 Entrada
             </span>
 
             <span class="timeline-value">
-                {{ reserva.data_entrada }}
+                {{ reserva.data_entrada.strftime('%d/%m/%Y') }}
             </span>
+
         </div>
 
         <div class="timeline-item">
+
             <span class="timeline-label">
                 Saída
             </span>
 
             <span class="timeline-value">
-                {{ reserva.data_saida }}
+                {{ reserva.data_saida.strftime('%d/%m/%Y') }}
             </span>
+
         </div>
 
     </div>

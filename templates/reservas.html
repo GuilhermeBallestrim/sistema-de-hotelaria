@@ -39,10 +39,10 @@ Lista de Reservas
 
         <td>{{ reserva.quarto }}</td>
 
-        <td>{{ reserva.data_entrada }}</td>
+        <td>{{ reserva.data_entrada.strftime("%d/%m/%Y") }}</td>
 
-        <td>{{ reserva.data_saida }}</td>
-
+        <td>{{ reserva.data_saida.strftime("%d/%m/%Y") }}</td>
+        
         <td>
 
             <a href="/view_reserva/{{ reserva.id }}" class="btn btn-view">

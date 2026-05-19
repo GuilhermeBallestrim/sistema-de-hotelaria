@@ -359,10 +359,10 @@ def consulta_reservas():
     return dados
 
 def consulta_reserva_id(id):
-    
+
     conexao = connection()
     cursor = conexao.cursor(dictionary=True)
-    
+
     sql = """
         SELECT 
             reservas.id,
@@ -391,15 +391,35 @@ def consulta_reserva_id(id):
             ON reservas.quarto_id = quartos.id
 
         WHERE reservas.id = %s
-    """    
-    
+    """
+
     cursor.execute(sql, (id,))
-    
+
     dados = cursor.fetchone()
-    
+
+    if dados:
+
+        if dados["data_entrada"]:
+            dados["data_entrada_formatada"] = (
+                dados["data_entrada"]
+                .strftime("%d/%m/%Y")
+            )
+
+        else:
+            dados["data_entrada_formatada"] = ""
+
+        if dados["data_saida"]:
+            dados["data_saida_formatada"] = (
+                dados["data_saida"]
+                .strftime("%d/%m/%Y")
+            )
+
+        else:
+            dados["data_saida_formatada"] = ""
+
     cursor.close()
     conexao.close()
-    
+
     return dados
 
 def add_reserva(hospede_id, quarto_id, data_entrada, data_saida):
