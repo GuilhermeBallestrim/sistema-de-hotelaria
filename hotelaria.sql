@@ -3,10 +3,10 @@ USE hotelaria;
 
 CREATE table hospedes (
 	id INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NULL,
-    telefone VARCHAR(20) NULL,
-    cpf VARCHAR(14) UNIQUE
+	nome VARCHAR(30) NOT NULL,
+    email VARCHAR(40) NULL,
+    telefone VARCHAR(11) NULL,
+    cpf VARCHAR(11) UNIQUE
 );
 
 CREATE table quartos (
